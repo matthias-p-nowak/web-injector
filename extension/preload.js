@@ -1,8 +1,8 @@
-let script=document.createElement('script');
-script.textContent=`
-(function () {
-    window.originalFetch = window.fetch;
-    window.preloaded='added from preload.js';
+console.log(new Date().toLocaleTimeString());
+
+function preload(){
+    console.log('executing preload function');
+    window.originalFetch = window.fetch;    
     window.fetch = async function (url, options = {}) {
         console.log("Fetching:", url, options);
         try {
@@ -14,12 +14,9 @@ script.textContent=`
             throw error;
         }
     };
-})();`;
-document.documentElement.appendChild(script);
-let script2=document.createElement('script');
-let url=chrome.runtime.getURL('injected.js');
-console.log(`url = ${url}`);
-script2.src=url;
-document.documentElement.appendChild(script2);
-console.log('preload script was executed');
-// console.dir(document);
+    console.log('fetch redefined');
+}
+
+var script=document.createElement('script');
+script.textContent=preload.toString()+';preload()';
+document.documentElement.append(script);

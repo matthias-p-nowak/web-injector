@@ -3,6 +3,9 @@
     "name": "intercepting fetches",
     "version": "0.1",
     "description": "intercepts fetched resources",
+    "permissions": [
+        "activeTab", "scripting"
+      ],
     "content_scripts": [
         {
             "matches": [
