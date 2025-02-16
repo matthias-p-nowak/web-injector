@@ -1,0 +1,18 @@
+  {
+    "manifest_version": 3,
+    "background": {
+      "scripts": ["background.js"]
+    },
+    "name": "Your Extension Name",
+    "version": "1.0",
+    "permissions": [
+      "webRequest",
+      "webRequestBlocking"
+    ],
+    "host_permissions": [
+      "<all_urls>"
+    ]
+  }
+  
+
+
