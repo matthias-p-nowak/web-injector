@@ -1,0 +1,17 @@
+{
+    "manifest_version": 3,
+    "name": "intercepting fetches",
+    "version": "0.1",
+    "description": "intercepts fetched resources",
+    "content_scripts": [
+        {
+            "matches": [
+                "http://localhost/*"
+            ],
+            "js": [
+                "preload.js"
+            ],
+            "run_at": "document_start"
+        }
+    ]
+}
